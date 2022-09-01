@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: centos 
+  name: local-test-centos 
   namespace: default
 spec:
   selector:
     matchLabels:
-      app: centos 
+      app: local-test-centos 
   template:
     metadata:
       labels:
-        app: centos 
+        app: local-test-centos 
     spec:
       containers:
-      - name: centos-test 
+      - name: local-test-centos 
         image: centos
         imagePullPolicy: IfNotPresent
         command:
