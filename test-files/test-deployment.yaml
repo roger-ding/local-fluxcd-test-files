@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: centos 
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: centos 
+  template:
+    metadata:
+      labels:
+        app: centos 
+    spec:
+      containers:
+      - name: centos-test 
+        image: centos
+        imagePullPolicy: IfNotPresent
+        command:
+        - /bin/sh
+        - -c
+        - echo "Hello World!" && sleep infinity        
+        resources:
+          limits:
+            cpu: 2000m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 64Mi
+
